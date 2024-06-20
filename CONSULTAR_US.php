@@ -12,13 +12,14 @@
     $usuarios = Usuarios::consultarUsuarios();
     if (count($usuarios) > 0) {
         echo "<table>";
-        echo "<tr><th>Documento</th><th>Nombre</th><th>Fecha de Nacimiento</th><th>Foto</th></tr>";
+        echo "<tr><th>Documento</th><th>Nombre</th><th>Fecha de Nacimiento</th><th>Foto</th><th>Acciones</th></tr>";
         foreach ($usuarios as $usuario) {
             echo "<tr>";
             echo "<td>" . $usuario['Documento'] . "</td>";
             echo "<td>" . $usuario['Nombre'] . "</td>";
             echo "<td>" . $usuario['Fec_nac'] . "</td>";
-            echo "<td><img src='" . $usuario['Foto'] . "' alt='Foto'></td>";
+            echo "<td><img src='" . $usuario['Foto'] . "' alt='Foto' width='50'></td>";
+            echo "<td><a href='Ac/actu.php?Documento=" . $usuario['Documento'] . "'>Actualizar</a></td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -27,8 +28,6 @@
     }
     ?>
     <br>
-    <a href="Ac/actu.php"><button>ACTUALIZAR DATOS</button></a>
     <a href="Registrar_Usuario.php"><button>REGISTRAR</button></a>
-    
 </body>
 </html>
